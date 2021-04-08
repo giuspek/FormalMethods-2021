@@ -84,4 +84,4 @@ for k in range(1,10):
 
 and_list(["x149","x171",""])
 
-output_file.write("c Add this problem line: p cnf {} {}".format(index, n_clauses))	
+output_file.write("c Add this problem line: p cnf {} {}".format(index - 1, n_clauses))	

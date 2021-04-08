@@ -94,5 +94,5 @@ for job in ["c","g","s","m"]:
 		list_days.append("x{}{}".format(day, job))
 	exactly_one(list_days)
 
-output_file.write("c Add this problem line: p cnf {} {}".format(index, n_clauses))
+output_file.write("c Add this problem line: p cnf {} {}".format(index - 1, n_clauses))
 
