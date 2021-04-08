@@ -11,3 +11,14 @@ Repository containing the exercises solved during the Lab lectures for the cours
 - Solving Sudoku
 - Solving Nonogram
 - Incremental SAT solving for reservations
+
+## Lab3
+- Models of simple FOL formulas
+- Solving private investigations using FOL reasoning
+- The "Question" role to obtain specific answers using the theorem prover and existential formulae
+
+## Lab4
+- Solving Facebook-like math exercises using MathSAT
+- Synergy between SMT solving and geometry
+- Application of the ALLSAT option
+- Application of the UNSAT core extraction
