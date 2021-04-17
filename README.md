@@ -22,3 +22,8 @@ Repository containing the exercises solved during the Lab lectures for the cours
 - Synergy between SMT solving and geometry
 - Application of the ALLSAT option
 - Application of the UNSAT core extraction
+
+## Lab5
+- Using SMT to extract cryptographic keys
+- SMT interpolants and their applications
+- Bounded model checking using SMT
