@@ -27,3 +27,9 @@ Repository containing the exercises solved during the Lab lectures for the cours
 - Using SMT to extract cryptographic keys
 - SMT interpolants and their applications
 - Bounded model checking using SMT
+
+## Lab6
+- Using OMT to optimize simple problems
+- OMT to compute graph properties
+- MaxSAT/MaxSMT problem
+- Automatic SMT encoding to solve "connect dots"
