@@ -33,3 +33,14 @@ Repository containing the exercises solved during the Lab lectures for the cours
 - OMT to compute graph properties
 - MaxSAT/MaxSMT problem
 - Automatic SMT encoding to solve "connect dots"
+
+
+## Lab7
+
+- nuXmv: the adder circuit
+
+## Lab8
+
+- Encode programs using nuXmv
+- Checking mutual exclusion using nuXmv
+- Chemical reactions using nuXmv

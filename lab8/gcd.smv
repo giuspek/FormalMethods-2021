@@ -1,0 +1,29 @@
+MODULE main()
+VAR  a: 0..100;  b: 0..100;
+  pc: {l1,l2,l3,l4,l5};
+ASSIGN
+  init(pc):=l1;
+  next(pc):=
+    case
+      pc=l1 & a!=b   : l2;
+      pc=l1 & a=b    : l5;
+      pc=l2 & a>b    : l3;
+      pc=l2 & a<=b   : l4;
+      pc=l3 | pc=l4  : l1;
+      pc=l5          : l5;
+    esac;
+
+  next(a):=
+    case
+      pc=l3 & a > b: a - b;
+      TRUE: a;
+    esac;
+
+  next(b):=
+    case
+      pc=l4 & b >= a: b - a;
+      TRUE: b;
+    esac;
+
+LTLSPEC (a = 16 & b = 12) -> F (a = 4 & b = 4)
+INVARSPEC a >= 0 & b >= 0
