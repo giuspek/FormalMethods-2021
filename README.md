@@ -44,3 +44,15 @@ Repository containing the exercises solved during the Lab lectures for the cours
 - Encode programs using nuXmv
 - Checking mutual exclusion using nuXmv
 - Chemical reactions using nuXmv
+
+## Lab9
+
+- Defining a planning problem using blocks
+- Solving Hanoi problem as a planning task
+- Solving the ferryman problem as a planning task
+- Modeling tictactoe as a planning task
+
+
+# Facsimile exam
+
+A facsimile of the exam has been uploaded, so that you can have an overall idea about the exercises you could find on the exam. If the situation does not change, you will have two (2) hours to solve both exercises in the case you are taking the full exam. If you take only one of the two parts of the exam, you will have one (1) hour so solve the respective exercise.
