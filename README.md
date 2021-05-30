@@ -52,6 +52,10 @@ Repository containing the exercises solved during the Lab lectures for the cours
 - Solving the ferryman problem as a planning task
 - Modeling tictactoe as a planning task
 
+## Lab10
+
+- Model definition of user requirements: cleaning robot
+- Planning problem: Number Paranoia
 
 # Facsimile exam
 

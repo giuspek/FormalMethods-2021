@@ -1,0 +1,39 @@
+MODULE main()
+VAR
+    sensor : boolean;
+    pin    : boolean;
+    a      : alarm(sensor, pin);
+INVAR
+    pin -> sensor;
+
+LTLSPEC ( G !pin) -> ( G a.state = OFF);
+LTLSPEC G ((a.state = INTRUSION) -> F (a.state in { FIRED, OFF }));
+LTLSPEC G ((a.state = ARMED & G !pin) ->
+           ( G !sensor | F a.state = FIRED));
+LTLSPEC ( G F a.state = EVACUATE) -> ( G F sensor );
+
+MODULE alarm(sensor, use_pin)
+VAR
+    state   : { OFF, EVACUATE, ARMED, INTRUSION, FIRED };
+    s_clock : 0..59;
+
+INIT
+    state = OFF & s_clock = 0;
+
+ASSIGN
+    next(state) := case
+        OFF = state & use_pin           : EVACUATE;
+        use_pin                         : OFF;
+        EVACUATE = state & s_clock = 0  : ARMED;
+        ARMED = state & sensor          : INTRUSION;
+        INTRUSION = state & s_clock = 0 : FIRED;
+        TRUE                            : state;
+    esac;
+
+TRANS
+case
+    (state = OFF & next(state) = EVACUATE)    : next(s_clock) = 10;
+    (state = ARMED & next(state) = INTRUSION) : next(s_clock) = 5;
+    (s_clock > 0) : next(s_clock) = s_clock - 1;
+    TRUE : next(s_clock) = 0;
+esac;
