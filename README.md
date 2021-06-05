@@ -57,6 +57,11 @@ Repository containing the exercises solved during the Lab lectures for the cours
 - Model definition of user requirements: cleaning robot
 - Planning problem: Number Paranoia
 
+## Lab11
+
+- Translating timed automata into nuXmv models
+- Implementing a simple timed thermostat
+
 # Facsimile exam
 
 A facsimile of the exam has been uploaded, so that you can have an overall idea about the exercises you could find on the exam. If the situation does not change, you will have two (2) hours to solve both exercises in the case you are taking the full exam. If you take only one of the two parts of the exam, you will have one (1) hour so solve the respective exercise.
