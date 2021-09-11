@@ -1,0 +1,83 @@
+MODULE main
+	VAR
+		inner : {l, r, u, d};
+		outer : {l, r, u, d};
+		middle : {l, r, u, d};
+		mode : {ic, ia, oc, oa, mc, ma};
+
+	INIT
+		inner = r & outer = l & middle = d
+
+	DEFINE
+		goal := middle = u & outer = u & inner = u
+
+	TRANS
+		next(mode) != mode
+
+	ASSIGN
+		next(inner) = case
+			mode = oc | mode = oa: inner;
+			mode = ic & inner = l: u;
+			mode = ic & inner = r: d;
+			mode = ic & inner = u: r;
+			mode = ic & inner = d: l;
+			mode = ia & inner = r: u;
+			mode = ia & inner = l: d;
+			mode = ia & inner = d: r;
+			mode = ia & inner = u: l;
+			mode = ma & inner = r: d;
+			mode = ma & inner = l: u;
+			mode = ma & inner = d: l;
+			mode = ma & inner = u: r;
+			mode = mc & inner = r: u;
+			mode = mc & inner = l: d;
+			mode = mc & inner = d: r;
+			mode = mc & inner = u: l;
+			TRUE : inner;
+		esac;
+
+	ASSIGN
+		next(outer) = case
+			mode = ic | mode = ia: outer;
+			mode = oc & outer = l: u;
+			mode = oc & outer = r: d;
+			mode = oc & outer = u: r;
+			mode = oc & outer = d: l;
+			mode = oa & outer = r: u;
+			mode = oa & outer = l: d;
+			mode = oa & outer = d: r;
+			mode = oa & outer = u: l;
+			mode = ma & outer = r: d;
+			mode = ma & outer = l: u;
+			mode = ma & outer = d: l;
+			mode = ma & outer = u: r;
+			mode = mc & outer = r: u;
+			mode = mc & outer = l: d;
+			mode = mc & outer = d: r;
+			mode = mc & outer = u: l;
+			TRUE : outer;
+		esac;
+
+	ASSIGN
+		next(middle) = case
+			mode = mc & middle = l: u;
+			mode = mc & middle = r: d;
+			mode = mc & middle = u: r;
+			mode = mc & middle = d: l;
+			mode = ma & middle = r: u;
+			mode = ma & middle = l: d;
+			mode = ma & middle = d: r;
+			mode = ma & middle = u: l;
+			(mode = oa | mode = ia) & middle = r: d;
+			(mode = oa | mode = ia) & middle = l: u;
+			(mode = oa | mode = ia) & middle = d: l;
+			(mode = oa | mode = ia) & middle = u: r;
+			(mode = oc | mode = ic) & middle = r: u;
+			(mode = oc | mode = ic) & middle = l: d;
+			(mode = oc | mode = ic) & middle = d: r;
+			(mode = oc | mode = ic) & middle = u: l;
+			TRUE : middle;
+		esac;
+
+LTLSPEC
+	! F goal
